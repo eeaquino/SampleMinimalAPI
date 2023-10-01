@@ -18,7 +18,7 @@ namespace SampleMinimalAPI.Test
 
         
     }
-    [MediatorPost("api/test1/Create","Test1",true,DataBindEnum.FromBody)]
+    [MediatorPost("api/test1/Create","Test1",true,DataBind.FromBody)]
     public record CreateCommand(string Name, TestItem Item) : IHttpRequest;
 
     public class CreateCommandHandler : IRequestHandler<CreateCommand,IResult>

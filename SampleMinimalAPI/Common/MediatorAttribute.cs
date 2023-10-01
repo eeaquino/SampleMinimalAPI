@@ -5,9 +5,9 @@
         private bool secure;
         public string Route { get; set; }
         public string Tag { get; set; }
-        public DataBindEnum DataBind { get; set; }
+        public DataBind DataBind { get; set; }
 
-        public MediatorHttpMethodAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+        public MediatorHttpMethodAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters)
         {
             this.Route = route;
             this.Tag = tag;
@@ -17,35 +17,35 @@
     }
     public class MediatorGetAttribute : MediatorHttpMethodAttribute
     {
-        public MediatorGetAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters) : base(route, tag, secure, dataBind)
+        public MediatorGetAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters) : base(route, tag, secure, dataBind)
         {
         }
     }
 
     public class MediatorPostAttribute : MediatorHttpMethodAttribute
     {
-        public MediatorPostAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters) : base(route, tag, secure, dataBind)
+        public MediatorPostAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters) : base(route, tag, secure, dataBind)
         {
         }
     }
 
     public class MediatorDeleteAttribute : MediatorHttpMethodAttribute
     {
-        public MediatorDeleteAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters) : base(route, tag, secure, dataBind)
+        public MediatorDeleteAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters) : base(route, tag, secure, dataBind)
         {
         }
     }
 
     public class MediatorPutAttribute : MediatorHttpMethodAttribute
     {
-        public MediatorPutAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters) : base(route, tag, secure, dataBind)
+        public MediatorPutAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters) : base(route, tag, secure, dataBind)
         {
         }
     }
 
     public class MediatorPatchAttribute : MediatorHttpMethodAttribute
     {
-        public MediatorPatchAttribute(string route, string tag, bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters) : base(route, tag, secure, dataBind)
+        public MediatorPatchAttribute(string route, string tag, bool secure = false, DataBind dataBind = DataBind.AsParameters) : base(route, tag, secure, dataBind)
         {
         }
     }
@@ -54,9 +54,9 @@
     //    private bool Secure { get; set; }
     //    public string Route { get; set; }
     //    public string Tag { get; set; }
-    //    public DataBindEnum DataBind { get; set; }
+    //    public DataBind DataBind { get; set; }
 
-    //    public MediatorGetAttribute(string route,string tag,bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+    //    public MediatorGetAttribute(string route,string tag,bool secure = false, DataBind dataBind = DataBind.AsParameters)
     //    {
     //        Secure = secure;
     //        Route = route;
@@ -71,9 +71,9 @@
     //    private bool Secure { get; set; }
     //    public string Route { get; set; }
     //    public string Tag { get; set; }
-    //    public DataBindEnum DataBind { get; set; }
+    //    public DataBind DataBind { get; set; }
 
-    //    public MediatorPostAttribute(string route,string tag,bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+    //    public MediatorPostAttribute(string route,string tag,bool secure = false, DataBind dataBind = DataBind.AsParameters)
     //    {
     //        Secure = secure;
     //        Route = route;
@@ -88,9 +88,9 @@
     //    private bool Secure { get; set; }
     //    public string Route { get; set; }
     //    public string Tag { get; set; }
-    //    public DataBindEnum DataBind { get; set; }
+    //    public DataBind DataBind { get; set; }
 
-    //    public MediatorDeleteAttribute(string route,string tag,bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+    //    public MediatorDeleteAttribute(string route,string tag,bool secure = false, DataBind dataBind = DataBind.AsParameters)
     //    {
     //        Secure = secure;
     //        Route = route;
@@ -105,9 +105,9 @@
     //    private bool Secure { get; set; }
     //    public string Route { get; set; }
     //    public string Tag { get; set; }
-    //    public DataBindEnum DataBind { get; set; }
+    //    public DataBind DataBind { get; set; }
 
-    //    public MediatorPutAttribute(string route,string tag,bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+    //    public MediatorPutAttribute(string route,string tag,bool secure = false, DataBind dataBind = DataBind.AsParameters)
     //    {
     //        Secure = secure;
     //        Route = route;
@@ -122,9 +122,9 @@
     //    private bool Secure { get; set; }
     //    public string Route { get; set; }
     //    public string Tag { get; set; }
-    //    public DataBindEnum DataBind { get; set; }
+    //    public DataBind DataBind { get; set; }
 
-    //    public MediatorPatchAttribute(string route,string tag,bool secure = false, DataBindEnum dataBind = DataBindEnum.AsParameters)
+    //    public MediatorPatchAttribute(string route,string tag,bool secure = false, DataBind dataBind = DataBind.AsParameters)
     //    {
     //        Secure = secure;
     //        Route = route;

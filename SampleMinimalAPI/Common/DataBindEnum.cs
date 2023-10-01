@@ -1,6 +1,6 @@
 ﻿namespace SampleMinimalAPI.Common
 {
-    public enum DataBindEnum
+    public enum DataBind
     {
         FromBody,
         FromForm,

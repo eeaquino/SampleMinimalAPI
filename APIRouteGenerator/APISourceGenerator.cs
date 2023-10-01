@@ -9,7 +9,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace APIRouteGenerator
 {
-    public enum DataBindEnum
+    public enum DataBind
     {
         FromBody,
         FromForm,
@@ -50,7 +50,7 @@ namespace APIRouteGenerator
                     var routeValue = (string)route.ConstructorArguments[0].Value;
                     var tagValue = (string)route.ConstructorArguments[1].Value;
                     var secureValue = (bool)route.ConstructorArguments[2].Value;
-                    var databindValue = (DataBindEnum)route.ConstructorArguments[3].Value;
+                    var databindValue = (DataBind)route.ConstructorArguments[3].Value;
                     //get the generated code for this tag
                     if (!generatedCode.ContainsKey(tagValue))
                     {
@@ -92,15 +92,15 @@ namespace APIRouteGenerator
             return generatedCode.ToString();
         }
 
-        private string GetTypeFromDataBind(DataBindEnum dataBind)
+        private string GetTypeFromDataBind(DataBind dataBind)
         {
             switch (dataBind)
             {
-                case DataBindEnum.AsParameters:
+                case DataBind.AsParameters:
                     return "[AsParameters]";
-                case DataBindEnum.FromBody:
+                case DataBind.FromBody:
                     return "[FromBody]";
-                case DataBindEnum.FromForm:
+                case DataBind.FromForm:
                     return "[FromForm]";
                 default:
                     return "[AsParameters]";

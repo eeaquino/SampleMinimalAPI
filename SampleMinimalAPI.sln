@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMinimalAPI", "SampleMinimalAPI\SampleMinimalAPI.csproj", "{F9AB3686-CC97-4CE9-9CBC-593398DCA480}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleMinimalAPI", "SampleMinimalAPI\SampleMinimalAPI.csproj", "{F9AB3686-CC97-4CE9-9CBC-593398DCA480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIRouteGenerator", "APIRouteGenerator\APIRouteGenerator.csproj", "{4BF94BB9-6149-4B0A-BFBA-9454D17674F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F9AB3686-CC97-4CE9-9CBC-593398DCA480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9AB3686-CC97-4CE9-9CBC-593398DCA480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9AB3686-CC97-4CE9-9CBC-593398DCA480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BF94BB9-6149-4B0A-BFBA-9454D17674F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF94BB9-6149-4B0A-BFBA-9454D17674F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF94BB9-6149-4B0A-BFBA-9454D17674F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF94BB9-6149-4B0A-BFBA-9454D17674F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

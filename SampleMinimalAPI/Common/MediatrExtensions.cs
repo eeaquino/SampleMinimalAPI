@@ -8,7 +8,7 @@ namespace SampleMinimalAPI.Common
         public static WebApplication MediatorGet<TRequest>(this WebApplication app, string path)
             where TRequest : IHttpRequest
         {
-            app.MapGet(path, async (IMediator mediator, [AsParameters]TRequest request) => await mediator.Send(request));
+            app.MapGet(path, async (IMediator mediator, [AsParameters]TRequest request) => await mediator.Send(request)) .RequireAuthorization();
             return app;
         }
 

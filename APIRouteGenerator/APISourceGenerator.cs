@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -27,6 +28,7 @@ public class IncrementalGenerateEndpoint : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
+        Debugger.Launch();
         var provider = context.SyntaxProvider.CreateSyntaxProvider(
             predicate: (c, _) => c is RecordDeclarationSyntax && (((RecordDeclarationSyntax)c).Identifier.ToString().EndsWith("Query") || ((RecordDeclarationSyntax)c).Identifier.ToString().EndsWith("Command")),
             transform: (n, _) => (RecordDeclarationSyntax)n.Node
@@ -61,11 +63,14 @@ public class IncrementalGenerateEndpoint : IIncrementalGenerator
                 //get namespace of class
                 var ns = r.Ancestors().OfType<NamespaceDeclarationSyntax>().FirstOrDefault()?.Name.ToString()
                          ?? r.Ancestors().OfType<FileScopedNamespaceDeclarationSyntax>().FirstOrDefault()?.Name.ToString();
+
                 var method = route.Name.ToString().Replace("Mediator", "").Replace("Attribute", "");
+                //get arguments of attribute
+                var arguments = route.ArgumentList.Arguments;
                 var routeValue = route.ArgumentList.Arguments[0].ToString().TrimStart('"').TrimEnd('"');
                 var tagValue = route.ArgumentList.Arguments[1].ToString().TrimStart('"').TrimEnd('"');
-                var secureValue = route.ArgumentList.Arguments[2].ToString().TrimStart('"').TrimEnd('"') == "true";
-                var databindValue = GetDataBindFromString(route.ArgumentList.Arguments[3].ToString().TrimStart('"').TrimEnd('"'));
+                var secureValue =arguments.Count>2 && route.ArgumentList.Arguments[2].ToString().TrimStart('"').TrimEnd('"') == "true";
+                var databindValue =arguments.Count>3? GetDataBindFromString(route.ArgumentList.Arguments[3]?.ToString().TrimStart('"').TrimEnd('"')??""):DataBind.AsParameters;
                 if (!generatedCode.ContainsKey(tagValue))
                 {
                     generatedCode.Add(tagValue, InitStringBuilder(tagValue, projectNamespace));
@@ -110,7 +115,7 @@ public class IncrementalGenerateEndpoint : IIncrementalGenerator
         var generatedCode = new StringBuilder();
         generatedCode.AppendLine("using MediatR;");
         generatedCode.AppendLine("using Microsoft.AspNetCore.Mvc;");
-        generatedCode.AppendLine("using AMC.Common;");
+        generatedCode.AppendLine("using API.Common;");
         generatedCode.AppendLine($"using {projectName}.Common;");
         generatedCode.AppendLine($"namespace {projectName}.Generated");
         generatedCode.AppendLine("{");

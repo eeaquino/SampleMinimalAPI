@@ -17,6 +17,8 @@ namespace SampleMinimalAPI.Helpers
         }
 		protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
 		{
+            if (!Request.Headers.ContainsKey("Authorization"))
+                return AuthenticateResult.Fail("Missing Authorization Header");
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, "me", ClaimValueTypes.String, "SampleAPI")

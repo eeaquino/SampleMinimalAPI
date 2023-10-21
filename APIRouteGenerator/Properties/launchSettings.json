@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "APIGenerator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\SampleMinimalAPI\\SampleMinimalAPI.csproj"
+    }
+  }
+}
